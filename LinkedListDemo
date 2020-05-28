@@ -1,0 +1,47 @@
+/**
+*following linkedList code 
+*have only add and print methods
+*to use
+*/
+package com.company.ABC;
+
+public class LinkedListDemo {
+      private Node head;
+    private class Node{
+       private int data;
+       private Node next;
+          Node(int data){
+              this.data=data;
+              next=null;
+          }
+   }
+
+   public void print(){
+        Node temp=head;
+        while (temp!=null){
+            System.out.print(temp.data + " ");
+            temp=temp.next;
+        }
+   }
+
+   public void add(int item){
+       var toAdd=new Node(item);
+       //if head is empty
+       if(isEmpty()){
+           head=toAdd;
+           return;
+       }
+
+       Node temp=head;
+
+       while (temp.next != null){
+           temp=temp.next;
+       }
+       temp.next=toAdd;
+   }
+
+   private boolean isEmpty(){
+        return head==null;
+   }
+
+}
