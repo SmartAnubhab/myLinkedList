@@ -7,7 +7,9 @@ package com.company.ABC;
 
 public class LinkedListDemo {
       private Node head;
-    private class Node{
+ //Node class
+ //privately declared
+ private class Node{
        private int data;
        private Node next;
           Node(int data){
@@ -15,7 +17,31 @@ public class LinkedListDemo {
               next=null;
           }
    }
+   
+ //Remove mathod
+    public void removeLast() {
+        if (isEmpty()){
+            try {
+                throw new Exception();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
+        Node temp = head;
+        if (temp.next==null){
+            System.out.println(temp.data);
+            temp=null;
+        }
+
+        while (temp.next.next != null){
+            temp=temp.next;
+        }
+        System.out.println(temp.next.data);
+        temp.next=null;
+    }
+
+//print method
    public void print(){
         Node temp=head;
         while (temp!=null){
@@ -24,6 +50,7 @@ public class LinkedListDemo {
         }
    }
 
+//add method
    public void add(int item){
        var toAdd=new Node(item);
        //if head is empty
@@ -40,6 +67,9 @@ public class LinkedListDemo {
        temp.next=toAdd;
    }
 
+//test method 
+//check whether head is empty
+//isEmpty
    private boolean isEmpty(){
         return head==null;
    }
